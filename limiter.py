@@ -62,7 +62,7 @@ class RateLimiter(object):
 
         pipe.hget(subject, bucket)
         bucket_c = bucket - 1
-        for i in xrange(count - 1):
+        for i in xrange(int(count - 1)):
             b = int((bucket_c + self.bucket_count) % self.bucket_count)
             pipe.hget(subject,b)
             bucket_c -= 1
