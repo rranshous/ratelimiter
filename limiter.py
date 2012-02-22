@@ -31,7 +31,7 @@ class RateLimiter(object):
         self.bucket_interval = int(bucket_interval)
         self.subject_expire = int(subject_expire)
         self.base_key = base_key
-        self.bucket_count = round(self.bucket_span / self.bucket_interval)
+        self.bucket_count = int(round(self.bucket_span / self.bucket_interval)) or 1
 
     def _get_bucket(self, _time=None):
         _time = _time or time()
