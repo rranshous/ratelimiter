@@ -27,9 +27,9 @@ class RateLimiter(object):
                        subject_expire = 1200):
 
         self.rc = redis_client
-        self.bucket_span = bucket_span
-        self.bucket_interval = bucket_interval
-        self.subject_expire = subject_expire
+        self.bucket_span = int(bucket_span)
+        self.bucket_interval = int(bucket_interval)
+        self.subject_expire = int(subject_expire)
         self.base_key = base_key
         self.bucket_count = round(self.bucket_span / self.bucket_interval)
 
